@@ -1,28 +1,28 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class ScalarPosition : MonoBehaviour
+public class playerScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
     void Start()
     {
-        startPos = transform.position;
-        
+        Pos = transform.position;
+        forward.transform.position = Vector3.forward;
     }
-    public float step;
-    private float scalar = 1;
-    Vector3 startPos;
+    Vector3 Pos;
+    public GameObject forward;
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.W))
         {
-            scalar += step;
+            Pos.y++;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            scalar -= step;
+            Pos.y--;
         }
-        transform.position = (startPos * scalar);
+        transform.position = Pos;
     }
 }
