@@ -8,14 +8,26 @@ public class Sine1 : MonoBehaviour
     {
         
     }
-    
+    public int axis = 1;
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = transform.position;
-        float sin = Mathf.Sin(Time.time);
+        if (axis == 1)
+        {
+            Vector3 move = transform.position;
+            float sin = Mathf.Sin(Time.time);
+
+            move.y = sin * 3;
+            transform.position = move;
+        }
+        if (axis == 2)
+        {
+            Vector3 move = transform.position;
+            float sin = Mathf.Sin(Time.time);
+
+            move.x = sin * 3;
+            transform.position = move;
+        }
         
-        move.y = sin * 3;
-        transform.position = move;
     }
 }
