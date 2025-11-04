@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -15,12 +16,19 @@ public class playerScript : MonoBehaviour
     public GameObject forward;
     public GameObject enemy;
     Vector3 enemyDir;
-    public float playerDotEnemyDir;
+    public GameObject DotText;
+    
+    private float playerDotEnemyDir;
     // Update is called once per frame
     void Update()
     {
-        playerDotEnemyDir = 0;
-        enemyDir = enemy.transform.position;
+        enemyDir = (enemy.transform.position - transform.position).normalized;
+
+        
+        
+
+        
+        
         if (Input.GetKeyDown(KeyCode.W))
         {
             Pos.z++;
@@ -30,5 +38,7 @@ public class playerScript : MonoBehaviour
             Pos.z--;
         }
         transform.position = Pos;
+        playerDotEnemyDir = Vector3.Dot(transform.forward, enemyDir);
+        DotText.GetComponent<TextMeshProUGUI>().text = $"Dot: {playerDotEnemyDir}";
     }
 }
