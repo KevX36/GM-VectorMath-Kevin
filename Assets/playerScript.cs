@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -14,10 +15,11 @@ public class playerScript : MonoBehaviour
     public GameObject forward;
     public GameObject enemy;
     Vector3 enemyDir;
-    private float playerDotEnemyDir;
+    public float playerDotEnemyDir;
     // Update is called once per frame
     void Update()
     {
+        playerDotEnemyDir = 0;
         enemyDir = enemy.transform.position;
         if (Input.GetKeyDown(KeyCode.W))
         {

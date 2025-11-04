@@ -580,7 +580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64dca77711e29f54f918d3c562749f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forward: {fileID: 0}
+  forward: {fileID: 686874151}
+  enemy: {fileID: 459850214}
+  playerDotEnemyDir: 0
 --- !u!65 &1328531270
 BoxCollider:
   m_ObjectHideFlags: 0
